@@ -110,6 +110,39 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <section id="Honors-&-awards">
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 7}>
+            <h2 className="text-xl font-bold">Honors & awards</h2>
+          </BlurFade>
+          {DATA.education.map((education, id) => (
+            <BlurFade
+              key={education.school}
+              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+            >
+              <ul className="list-disc list-item space-y-2 ml-4">
+                <li>
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold leading-none text-xs sm:text-sm">
+                      Dean's List Honors:
+                    </span>
+                    <p className="text-xs sm:text-sm text-muted-foreground">
+                      Jul 2023
+                    </p>
+                  </div>
+                  <div className="ml-4 mt-2 text-xs sm:text-sm font-normal">
+                    Associated with American International
+                    University-Bangladesh.
+                  </div>
+                  <div className="ml-4 mt-2 text-xs sm:text-sm font-normal">
+                    Obtained the Dean's List Honors for academic excellence.
+                  </div>
+                </li>
+              </ul>
+            </BlurFade>
+          ))}
+        </div>
+      </section>
       <section id="projects">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
@@ -207,10 +240,10 @@ export default function Page() {
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Want to chat? Just shoot me a dm{" "}
                 <Link
-                  href={DATA.contact.social.X.url}
+                  href={DATA.contact.social.LinkedIn.url}
                   className="text-blue-500 hover:underline"
                 >
-                  with a direct question on twitter
+                  with a direct question on Linkedin
                 </Link>{" "}
                 and I&apos;ll respond whenever I can. I will ignore all
                 soliciting.
