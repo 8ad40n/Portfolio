@@ -1,9 +1,11 @@
+import AwardCard from "@/components/AwardCard";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import TypingAnimation from "@/components/ui/typing-animation";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -29,21 +31,20 @@ export default function Page() {
                 yOffset={8}
                 text={`Hi, I'm ${DATA.name}`}
               />
-              <BlurFadeText
-                className="max-w-[600px] md:text-xl text-center mx-auto"
-                delay={BLUR_FADE_DELAY}
+              <TypingAnimation
+                className="max-w-[600px] md:text-xl text-center mx-auto font-normal"
                 text={DATA.description}
               />
             </div>
           </div>
         </div>
       </section>
-      <section id="about" className="">
+      <section id="about" className="border rounded-lg px-3 md:px-4 py-4">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-xl font-bold">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert text-justify">
             {DATA.summary}
           </Markdown>
         </BlurFade>
@@ -73,7 +74,7 @@ export default function Page() {
           ))}
         </div>
       </section> */}
-      <section id="education">
+      <section id="education" className="border rounded-lg px-3 md:px-4 py-4">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="text-xl font-bold">Education</h2>
@@ -96,7 +97,7 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section id="skills">
+      <section id="skills" className="border rounded-lg px-3 md:px-4 py-4">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">Skills</h2>
@@ -110,40 +111,30 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="Honors-&-awards">
+      <section
+        id="Honors-&-awards"
+        className="border rounded-lg px-3 md:px-4 py-4"
+      >
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
-            <h2 className="text-xl font-bold">Honors & awards</h2>
+            <h2 className="text-xl font-bold">Honors & Awards</h2>
           </BlurFade>
-          {DATA.education.map((education, id) => (
-            <BlurFade
-              key={education.school}
-              delay={BLUR_FADE_DELAY * 8 + id * 0.05}
-            >
-              <ul className="list-disc list-item space-y-2 ml-4">
-                <li>
-                  <div className="flex justify-between items-center">
-                    <span className="font-semibold leading-none text-xs sm:text-sm">
-                      Dean's List Honors:
-                    </span>
-                    <p className="text-xs sm:text-sm text-muted-foreground">
-                      Jul 2023
-                    </p>
-                  </div>
-                  <div className="ml-4 mt-2 text-xs sm:text-sm font-normal">
-                    Associated with American International
-                    University-Bangladesh.
-                  </div>
-                  <div className="ml-4 mt-2 text-xs sm:text-sm font-normal">
-                    Obtained the Dean's List Honors for academic excellence.
-                  </div>
-                </li>
-              </ul>
+          {DATA.award.map((award, id) => (
+            <BlurFade key={award.title} delay={BLUR_FADE_DELAY * 8 + id * 0.05}>
+              <AwardCard
+                key={award.title}
+                title={award.title}
+                href={award.href}
+                associate={award.Associate}
+                logoUrl={award.AssociateLogoUrl}
+                description={award.description}
+                period={award.dates}
+              />
             </BlurFade>
           ))}
         </div>
       </section>
-      <section id="projects">
+      <section id="projects" className="border rounded-lg px-3 md:px-4 py-4">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -227,7 +218,7 @@ export default function Page() {
           </BlurFade>
         </div>
       </section> */}
-      <section id="contact">
+      <section id="contact" className="border rounded-lg px-3 md:px-4 py-4">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">
