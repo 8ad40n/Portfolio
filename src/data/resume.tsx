@@ -12,22 +12,28 @@ export const DATA = {
   summary:
     "I am a dedicated Full Stack Developer and Software Engineer with expertise in both front-end and back-end technologies, including TypeScript, JavaScript, C++, Express.js, Next.js, React, Nest.js, and REST APIs. With hands-on experience in database management using MongoDB, PostgreSQL, Mongoose, and TypeORM, I have successfully developed and deployed several projects. Additionally, I possess knowledge of machine learning, which allows me to integrate advanced capabilities into my work. Currently pursuing a degree in Computer Science and Engineering at American International University-Bangladesh, I am eager to apply my skills to create innovative solutions in the tech industry.",
   avatarUrl: "/me.jpg",
-  skills: [
-    "Typescript",
-    "JavaScript",
-    "Express Js",
-    "Next.Js",
-    "React",
-    "Firebase",
-    "REST API",
-    "Nest Js",
-    "MongoDB",
-    "Mongoose",
-    "PostgreSQL",
-    "TypeORM",
-    "C++",
+  skills: 
+    // "Typescript",
+    // "JavaScript",
+    // "Express Js",
+    // "Next.Js",
+    // "React",
+    // "Firebase",
+    // "REST API",
+    // "Nest Js",
+    // "MongoDB",
+    // "Mongoose",
+    // "PostgreSQL",
+    // "TypeORM",
+    // "C++",
+    {
+      Programming: ["TyepScript", "JavaScript", "C++", "Python", "C#"],
+      Frontend: ["Next.Js", "React", "HTML", "CSS", "Tailwind CSS" ],
+      Backend: ["Express Js", "Nest Js", "REST API"],
+      Database: ["MongoDB", "PostgreSQL", "Mongoose", "TypeORM"],
+      Others: ["Firebase", "Next Auth", "Git", "GitHub"]
+    },
     
-  ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     // { href: "/blog", icon: NotebookIcon, label: "Blog" },
@@ -58,7 +64,7 @@ export const DATA = {
       },
       Facebook: {
         name: "Facebook",
-        url: "https://www.facebook.com/j.o.y.184110/",
+        url: "https://www.facebook.com/8ad40n/",
         icon: Icons.facebook,
 
         navbar: true,

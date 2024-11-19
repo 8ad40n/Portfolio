@@ -1,43 +1,72 @@
+"use client";
 import AwardCard from "@/components/AwardCard";
 import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import Confetti, { ConfettiRef } from "@/components/ui/confetti";
+import HeroVideoDialog from "@/components/ui/hero-video-dialog";
+import SparklesText from "@/components/ui/sparkles-text";
 import TypingAnimation from "@/components/ui/typing-animation";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
+import { useRef } from "react";
 import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const confettiRef = useRef<ConfettiRef>(null);
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
-      <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
-          <div className="flex flex-col justify-center items-center gap-6">
-            <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-60 md:size-80 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
-            </BlurFade>
-            <div className="flex-col flex space-y-1.5">
-              <BlurFadeText
-                delay={BLUR_FADE_DELAY}
-                className="text-3xl font-bold tracking-tighter text-center sm:text-5xl xl:text-6xl/none"
-                yOffset={8}
-                text={`Hi, I'm ${DATA.name}`}
-              />
-              <TypingAnimation
-                className="max-w-[600px] text-sm md:text-xl text-center mx-auto font-normal"
-                text={DATA.description}
-              />
+      <section id="hero" className="">
+        <div className="relative pt-2 flex w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background">
+          <div className="mx-auto w-full max-w-2xl space-y-8">
+            <div className="flex flex-col justify-center items-center gap-6">
+              <BlurFade delay={BLUR_FADE_DELAY}>
+                <div className="border-4 border-gray-600 dark:border-gray-300 rounded-full p-1">
+                  <Avatar className="size-60 md:size-80 rounded-full">
+                    <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                    <AvatarFallback>{DATA.initials}</AvatarFallback>
+                  </Avatar>
+                </div>
+              </BlurFade>
+              <BlurFade delay={BLUR_FADE_DELAY}>
+                <div className="flex-col flex space-y-1.5">
+                  <SparklesText
+                    className="text-2xl font-normal tracking-tighter text-center md:text-4xl lg:text-5xl"
+                    text={`Hi, I'm ${DATA.name}`}
+                  />
+                  <TypingAnimation
+                    className="max-w-[600px] text-sm md:text-xl text-center mx-auto font-light"
+                    text={DATA.description}
+                  />
+                </div>
+              </BlurFade>
             </div>
           </div>
+
+          <Confetti
+            ref={confettiRef}
+            className="absolute left-0 top-0 z-0 size-full"
+            onMouseEnter={() => {
+              confettiRef.current?.fire({});
+            }}
+          />
         </div>
+        <BlurFade delay={BLUR_FADE_DELAY}>
+          <div className="flex justify-center items-center mt-6">
+            <a
+              href="/resume.pdf"
+              download
+              className="text-white bg-purple-700 px-8 py-2 rounded-lg"
+            >
+              My Resume
+            </a>
+          </div>
+        </BlurFade>
+        <hr className="mt-8" />
       </section>
       <section id="about" className="">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
@@ -48,6 +77,27 @@ export default function Page() {
             {DATA.summary}
           </Markdown>
         </BlurFade>
+      </section>
+      <section id="introduction">
+        <BlurFade delay={BLUR_FADE_DELAY * 3}>
+          <h2 className="text-xl font-bold">Introduction</h2>
+        </BlurFade>
+        <div className="relative">
+          <HeroVideoDialog
+            className="dark:hidden block"
+            animationStyle="top-in-bottom-out"
+            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+            thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+            thumbnailAlt="Hero Video"
+          />
+          <HeroVideoDialog
+            className="hidden dark:block"
+            animationStyle="top-in-bottom-out"
+            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+            thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+            thumbnailAlt="Hero Video"
+          />
+        </div>
       </section>
       {/* <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
@@ -102,19 +152,36 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">Skills</h2>
           </BlurFade>
-          <div className="flex flex-wrap gap-1">
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
-              </BlurFade>
+          <div className="flex flex-col gap-4">
+            {Object.entries(DATA.skills).map(([category, skills]) => (
+              <div key={category} className="w-full flex flex-col md:flex-row gap-2">
+                {/* Category Title */}
+                <h3 className="md:min-w-[150px] text-sm font-normal">
+                  {category}
+                </h3>
+                <p className="hidden md:block">:</p>
+                <div className="flex flex-wrap gap-2">
+                  {/* Skill Badges */}
+                  {skills.map((skill, id) => (
+                    <BlurFade
+                      key={skill}
+                      delay={BLUR_FADE_DELAY * 10 + id * 0.05}
+                    >
+                      <Badge
+                        key={skill}
+                        className=""
+                      >
+                        {skill}
+                      </Badge>
+                    </BlurFade>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
-      <section
-        id="Honors-&-awards"
-        className=""
-      >
+      <section id="Honors-&-awards" className="">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="text-xl font-bold">Honors & Awards</h2>
@@ -231,10 +298,10 @@ export default function Page() {
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Want to chat? Just shoot me a dm{" "}
                 <Link
-                  href={DATA.contact.social.LinkedIn.url}
+                  href={`mailto:${DATA.contact.social.Email.url}`}
                   className="text-blue-500 hover:underline"
                 >
-                  with a direct question on Linkedin
+                  with a direct question on Email
                 </Link>{" "}
                 and I&apos;ll respond whenever I can. I will ignore all
                 soliciting.
