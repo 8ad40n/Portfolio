@@ -32,14 +32,14 @@ export default function Page() {
                 text={`Hi, I'm ${DATA.name}`}
               />
               <TypingAnimation
-                className="max-w-[600px] md:text-xl text-center mx-auto font-normal"
+                className="max-w-[600px] text-sm md:text-xl text-center mx-auto font-normal"
                 text={DATA.description}
               />
             </div>
           </div>
         </div>
       </section>
-      <section id="about" className="border rounded-lg px-3 md:px-4 py-4">
+      <section id="about" className="">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-xl font-bold">About</h2>
         </BlurFade>
@@ -74,7 +74,7 @@ export default function Page() {
           ))}
         </div>
       </section> */}
-      <section id="education" className="border rounded-lg px-3 md:px-4 py-4">
+      <section id="education" className="">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
             <h2 className="text-xl font-bold">Education</h2>
@@ -97,7 +97,7 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section id="skills" className="border rounded-lg px-3 md:px-4 py-4">
+      <section id="skills" className="">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">Skills</h2>
@@ -113,7 +113,7 @@ export default function Page() {
       </section>
       <section
         id="Honors-&-awards"
-        className="border rounded-lg px-3 md:px-4 py-4"
+        className=""
       >
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
@@ -134,7 +134,7 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section id="projects" className="border rounded-lg px-3 md:px-4 py-4">
+      <section id="projects" className="">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">

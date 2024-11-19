@@ -50,9 +50,9 @@ export const DATA = {
 
         navbar: true,
       },
-      email: {
+      Email: {
         name: "Email",
-        url: "https://mail.google.com/mail/u/0/#inbox?compose=CllgCHrgmQRlxZPMMrLknXVnjkBFnXWRVGMLxgsSmwDWZLKNbmdwMSTlLMpQTlDMcMrtWfWxptL",
+        url: "joy184110@gmail.com",
         icon: Icons.email,
         navbar: true,
       },
