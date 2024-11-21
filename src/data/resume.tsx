@@ -9,7 +9,7 @@ export const DATA = {
   locationLink: "",
   description: "Software Engineer | Full Stack Developer",
   summary:
-    "I am a dedicated Full Stack Developer and Software Engineer with expertise in both front-end and back-end technologies, including TypeScript, JavaScript, C++, Express.js, Next.js, React, Nest.js, and REST APIs. With hands-on experience in database management using MongoDB, PostgreSQL, Mongoose, and TypeORM, I have successfully developed and deployed several projects. Additionally, I possess knowledge of machine learning, which allows me to integrate advanced capabilities into my work. Currently pursuing a degree in Computer Science and Engineering at American International University-Bangladesh, I am eager to apply my skills to create innovative solutions in the tech industry.",
+    "I am a dedicated Full Stack Developer and Software Engineer with expertise in both front-end and back-end technologies, including TypeScript, JavaScript, Express.js, Next.js, React, Nest.js, and REST APIs. With hands-on experience in database management using MongoDB, PostgreSQL, Mongoose, and TypeORM, I have successfully developed and deployed several projects. Additionally, I possess knowledge of basic machine learning, which allows me to integrate advanced capabilities into my work. Currently pursuing a degree in Computer Science and Engineering at American International University-Bangladesh, I am eager to apply my skills to create innovative solutions in the tech industry.",
   avatarUrl: "/me.jpg",
   skills:
     // "Typescript",
@@ -279,7 +279,6 @@ export const DATA = {
       technologies: [
         "Php",
         "Mysqli",
-        "Nest js",
         "HTML",
         "CSS",
         "Bootstrap",

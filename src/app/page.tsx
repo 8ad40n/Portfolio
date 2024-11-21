@@ -62,7 +62,7 @@ export default function Page() {
               download
               className="text-white bg-purple-700 px-8 py-2 rounded-lg"
             >
-              My Resume
+              My Curriculum Vitae
             </a>
           </div>
         </BlurFade>
@@ -85,19 +85,20 @@ export default function Page() {
         </BlurFade>
         <div className="relative">
           <HeroVideoDialog
-            className="dark:hidden block"
+            className="dark:hidden block border-2 border-gray-600 md:p-1 rounded-lg"
             animationStyle="top-in-bottom-out"
-            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-            thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+            videoSrc="/intro.mp4"
+            thumbnailSrc="/Thumbnail.png"
             thumbnailAlt="Hero Video"
           />
           <HeroVideoDialog
-            className="hidden dark:block"
+            className="hidden dark:block border-2 border-gray-300 md:p-1 rounded-lg"
             animationStyle="top-in-bottom-out"
-            videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-            thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+            videoSrc="/intro.mp4"
+            thumbnailSrc="/Thumbnail.png"
             thumbnailAlt="Hero Video"
           />
+          
         </div>
       </section>
       <hr />
@@ -172,7 +173,7 @@ export default function Page() {
                     >
                       <Badge
                         key={skill}
-                        className=""
+                        className="text-xs px-1 md:px-2"
                       >
                         {skill}
                       </Badge>
@@ -206,7 +207,7 @@ export default function Page() {
         </div>
       </section>
       <hr />
-      <section id="projects" className="">
+      <section id="projects" className="md:border md:rounded-xl">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
