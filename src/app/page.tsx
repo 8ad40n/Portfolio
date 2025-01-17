@@ -6,7 +6,6 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import Confetti, { ConfettiRef } from "@/components/ui/confetti";
-import HeroVideoDialog from "@/components/ui/hero-video-dialog";
 import SparklesText from "@/components/ui/sparkles-text";
 import TypingAnimation from "@/components/ui/typing-animation";
 import { DATA } from "@/data/resume";
@@ -62,7 +61,7 @@ export default function Page() {
               download
               className="text-white bg-purple-700 px-8 py-2 rounded-lg"
             >
-              My Curriculum Vitae
+              My Resume
             </a>
           </div>
         </BlurFade>
@@ -79,7 +78,7 @@ export default function Page() {
         </BlurFade>
       </section>
       <hr />
-      <section id="introduction">
+      {/* <section id="introduction">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <h2 className="text-xl font-bold">Introduction</h2>
         </BlurFade>
@@ -101,7 +100,7 @@ export default function Page() {
           
         </div>
       </section>
-      <hr />
+      <hr /> */}
       {/* <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
@@ -207,7 +206,7 @@ export default function Page() {
         </div>
       </section>
       <hr />
-      <section id="projects" className="md:border md:rounded-xl">
+      <section id="projects" className="md:border-2 md:rounded-xl">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -218,7 +217,7 @@ export default function Page() {
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                   Check out my latest work
                 </h2>
-                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed md:px-8">
                   I&apos;ve worked on a variety of projects, from simple
                   websites to complex web applications. Here are a few of my
                   favorites.
@@ -291,7 +290,7 @@ export default function Page() {
           </BlurFade>
         </div>
       </section> */}
-      <section id="contact" className="border rounded-lg px-3 md:px-4 py-4">
+      <section id="contact" className="border-2 rounded-lg px-3 md:px-4 py-4">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className="space-y-3">

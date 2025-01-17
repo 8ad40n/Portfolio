@@ -27,10 +27,10 @@ export const DATA = {
     // "C++",
     {
       Programming: ["TyepScript", "JavaScript", "C++", "Python", "C#"],
-      Frontend: ["Next.Js", "React", "HTML", "CSS", "Tailwind CSS"],
-      Backend: ["Express Js", "Nest Js", "REST API"],
+      Frontend: ["Next.Js", "React", "Redux", "HTML", "CSS", "Tailwind CSS"],
+      Backend: ["Node js", "Express Js", "Nest Js", "REST API"],
       Database: ["MongoDB", "PostgreSQL", "Mongoose", "TypeORM"],
-      Others: ["Firebase", "Next Auth", "Git", "GitHub"],
+      Others: ["Firebase", "Next Auth","Vercel", "Git", "GitHub"],
     },
 
   navbar: [
